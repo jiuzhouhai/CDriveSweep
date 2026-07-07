@@ -1,0 +1,41 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E2B08D50-D24E-41AB-AF3A-C98C35910E0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDriveSweep.Core", "src\CDriveSweep.Core\CDriveSweep.Core.csproj", "{EADA390E-863C-47E4-AED1-296FCDFED67D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDriveSweep.Cli", "src\CDriveSweep.Cli\CDriveSweep.Cli.csproj", "{66382FE2-DC96-4C64-9027-8736FAF79AC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDriveSweep.App", "src\CDriveSweep.App\CDriveSweep.App.csproj", "{41689050-85F4-4AFD-AFB6-E286F1FF6AFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EADA390E-863C-47E4-AED1-296FCDFED67D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EADA390E-863C-47E4-AED1-296FCDFED67D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EADA390E-863C-47E4-AED1-296FCDFED67D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EADA390E-863C-47E4-AED1-296FCDFED67D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66382FE2-DC96-4C64-9027-8736FAF79AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66382FE2-DC96-4C64-9027-8736FAF79AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66382FE2-DC96-4C64-9027-8736FAF79AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66382FE2-DC96-4C64-9027-8736FAF79AC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41689050-85F4-4AFD-AFB6-E286F1FF6AFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41689050-85F4-4AFD-AFB6-E286F1FF6AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41689050-85F4-4AFD-AFB6-E286F1FF6AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41689050-85F4-4AFD-AFB6-E286F1FF6AFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EADA390E-863C-47E4-AED1-296FCDFED67D} = {E2B08D50-D24E-41AB-AF3A-C98C35910E0A}
+		{66382FE2-DC96-4C64-9027-8736FAF79AC1} = {E2B08D50-D24E-41AB-AF3A-C98C35910E0A}
+		{41689050-85F4-4AFD-AFB6-E286F1FF6AFD} = {E2B08D50-D24E-41AB-AF3A-C98C35910E0A}
+	EndGlobalSection
+EndGlobal

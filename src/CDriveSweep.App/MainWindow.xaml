@@ -1,0 +1,238 @@
+<Window x:Class="CDriveSweep.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:converters="clr-namespace:CDriveSweep.App.Converters"
+        xmlns:vm="clr-namespace:CDriveSweep.App.ViewModels"
+        mc:Ignorable="d"
+        Title="CDriveSweep - C盘安全清理工具"
+        Height="700" Width="820"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Background="#F5F5F5">
+
+    <Window.Resources>
+        <Style x:Key="CleanButton" TargetType="Button">
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Margin" Value="5,0"/>
+        </Style>
+
+        <Style x:Key="CategoryHeader" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#333"/>
+        </Style>
+
+        <Style x:Key="SubText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#888"/>
+        </Style>
+
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
+    </Window.Resources>
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- 标题 -->
+        <Border Grid.Row="0" Background="#0078D4" CornerRadius="6" Padding="15,10" Margin="0,0,0,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock x:Name="TxtTitle" Text="CDriveSweep" FontSize="22" FontWeight="Bold"
+                               Foreground="White" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="TxtSubTitle" Text=" - C盘安全清理工具" FontSize="14"
+                               Foreground="#D0E8FF" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                </StackPanel>
+                <Button x:Name="BtnLanguage" Grid.Column="1"
+                        Content="English" Width="70" Height="28"
+                        FontSize="12" FontWeight="SemiBold"
+                        Background="#4A9EFF" Foreground="White"
+                        BorderBrush="#4A9EFF" BorderThickness="1"
+                        Cursor="Hand" Click="BtnLanguage_Click"/>
+            </Grid>
+        </Border>
+
+        <!-- 操作按钮 -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,6">
+            <Button x:Name="BtnScan" Content="扫描" Style="{StaticResource CleanButton}"
+                    MinWidth="90" Background="#0078D4" Foreground="White"
+                    BorderBrush="#0078D4" Click="BtnScan_Click"/>
+            <Button x:Name="BtnClean" Content="清理选中项" Style="{StaticResource CleanButton}"
+                    MinWidth="110" Background="#E81123" Foreground="White"
+                    BorderBrush="#E81123" Click="BtnClean_Click"/>
+            <Button x:Name="BtnSelectAll" Content="全选" Style="{StaticResource CleanButton}"
+                    MinWidth="80" Background="#DDD" Foreground="#333"
+                    BorderBrush="#CCC" Click="BtnSelectAll_Click"/>
+            <Button x:Name="BtnDeselectAll" Content="取消全选" Style="{StaticResource CleanButton}"
+                    MinWidth="100" Background="#DDD" Foreground="#333"
+                    BorderBrush="#CCC" Click="BtnDeselectAll_Click"/>
+            <TextBlock x:Name="TxtProgress" Text="就绪" VerticalAlignment="Center"
+                       Margin="20,0,0,0" FontSize="13" Foreground="#666"/>
+        </StackPanel>
+
+        <!-- 安全提示 -->
+        <Border Grid.Row="2" Background="#FFF3CD" CornerRadius="4"
+                Padding="8,5" Margin="0,0,0,8" BorderBrush="#FFC107" BorderThickness="1">
+            <TextBlock x:Name="TxtSafetyTip" FontSize="12" Foreground="#856404"
+                       Text="安全提示：清理文件为不可逆操作，建议在执行清理前对重要数据进行备份。"/>
+        </Border>
+
+        <!-- 分类列表 -->
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="CategoriesPanel">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="White" CornerRadius="6"
+                                Margin="0,0,0,6" BorderBrush="#E0E0E0" BorderThickness="1"
+                                Padding="0">
+                            <StackPanel>
+                                <!-- 分类头（始终可见） -->
+                                <Border Padding="12,8" Background="Transparent"
+                                        MouseLeftButtonDown="CategoryHeader_Click">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="110"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <CheckBox Grid.Column="0" VerticalAlignment="Center"
+                                                  IsChecked="{Binding IsSelected}"
+                                                  Click="CheckBox_Click"/>
+
+                                        <StackPanel Grid.Column="1" Margin="8,0,0,0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Category}"
+                                                           Style="{StaticResource CategoryHeader}"/>
+                                                <Border CornerRadius="3" Padding="4,1"
+                                                        Margin="8,0,0,0" VerticalAlignment="Center">
+                                                    <Border.Background>
+                                                        <SolidColorBrush Color="{Binding RiskColor}" Opacity="0.15"/>
+                                                    </Border.Background>
+                                                    <TextBlock Text="{Binding RiskDisplay}"
+                                                               FontSize="10" FontWeight="Bold"
+                                                               Foreground="{Binding RiskColor}"/>
+                                                </Border>
+                                                <TextBlock Text=" ▸" FontSize="12" Foreground="#999"
+                                                           VerticalAlignment="Center" Margin="5,0,0,0">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding IsExpanded}" Value="True">
+                                                                    <Setter Property="Text" Value=" ▾"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </StackPanel>
+                                            <TextBlock Text="{Binding Description}"
+                                                       Style="{StaticResource SubText}"/>
+                                        </StackPanel>
+
+                                        <TextBlock Grid.Column="2"
+                                                   Text="{Binding FileCountDisplay}"
+                                                   FontSize="12" Foreground="#666"
+                                                   VerticalAlignment="Center"
+                                                   Margin="10,0"/>
+
+                                        <StackPanel Grid.Column="3" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding SizeDisplay}"
+                                                       FontSize="16" FontWeight="Bold"
+                                                       Foreground="#E81123"
+                                                       HorizontalAlignment="Right"
+                                                       Visibility="{Binding HasSize, Converter={StaticResource BoolToVisibility}}"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+
+                                <!-- 展开的文件列表 -->
+                                <Border Background="#FAFAFA"
+                                        Visibility="{Binding IsExpanded, Converter={StaticResource BoolToVisibility}}">
+                                    <ItemsControl ItemsSource="{Binding ScanItems}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Padding="40,4,12,4"
+                                                        BorderBrush="#EEE" BorderThickness="0,0,0,1"
+                                                        Cursor="Hand"
+                                                        MouseLeftButtonDown="ScanItem_Click">
+                                                    <Border.ToolTip>
+                                                        <ToolTip>
+                                                            <TextBlock Text="{Binding FullPath}"
+                                                                       FontSize="11"/>
+                                                        </ToolTip>
+                                                    </Border.ToolTip>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
+
+                                                        <TextBlock Grid.Column="0"
+                                                                   Text="{Binding TypeIcon}"
+                                                                   FontSize="12" Margin="0,0,6,0"/>
+
+                                                        <TextBlock Grid.Column="1"
+                                                                   Text="{Binding Name}"
+                                                                   FontSize="12" Foreground="#333"
+                                                                   VerticalAlignment="Center"
+                                                                   TextTrimming="CharacterEllipsis"/>
+
+                                                        <TextBlock Grid.Column="2"
+                                                                   Text="{Binding SizeDisplay}"
+                                                                   FontSize="11" Foreground="#888"
+                                                                   VerticalAlignment="Center"
+                                                                   Margin="10,0,0,0"/>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <!-- 汇总 -->
+        <Border Grid.Row="4" Background="White" CornerRadius="6" Padding="12,8"
+                Margin="0,10,0,5" BorderBrush="#E0E0E0" BorderThickness="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="TxtLabelSelected" Text="选中可释放:" FontSize="13"
+                           Foreground="#666" VerticalAlignment="Center"/>
+                <TextBlock x:Name="TxtTotalSelected" Text="0 B" FontSize="16"
+                           FontWeight="Bold" Foreground="#E81123"
+                           VerticalAlignment="Center" Margin="10,0,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- 状态栏 -->
+        <Border Grid.Row="5" Background="#EEE" CornerRadius="4" Padding="8,4">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="TxtStatus" Text="点击「扫描」开始分析 C 盘可清理内容"
+                           FontSize="12" Foreground="#666"/>
+                <TextBlock x:Name="TxtStatusTip" Text=" | 点击分类可展开查看文件详情 | 点击文件可在资源管理器中定位"
+                           FontSize="11" Foreground="#AAA" Margin="15,0,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

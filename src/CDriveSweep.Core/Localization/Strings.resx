@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- App -->
+  <data name="AppTitle" xml:space="preserve"><value>CDriveSweep - C盘安全清理工具</value></data>
+  <data name="AppSubTitle" xml:space="preserve"><value>C盘安全清理工具</value></data>
+
+  <!-- Buttons -->
+  <data name="BtnScan" xml:space="preserve"><value>扫描</value></data>
+  <data name="BtnClean" xml:space="preserve"><value>清理选中项</value></data>
+  <data name="BtnSelectAll" xml:space="preserve"><value>全选</value></data>
+  <data name="BtnDeselectAll" xml:space="preserve"><value>取消全选</value></data>
+  <data name="BtnLanguage" xml:space="preserve"><value>English</value></data>
+
+  <!-- Status -->
+  <data name="StatusReady" xml:space="preserve"><value>点击「扫描」开始分析 C 盘可清理内容</value></data>
+  <data name="StatusScanning" xml:space="preserve"><value>正在扫描 {0} 个选中分类...</value></data>
+  <data name="StatusCleaning" xml:space="preserve"><value>清理中... ({0}/{1})</value></data>
+  <data name="StatusComplete" xml:space="preserve"><value>扫描完成! 选中 {0} 个分类，共发现 {1} 个文件</value></data>
+  <data name="LabelSelected" xml:space="preserve"><value>选中可释放:</value></data>
+  <data name="TipAdmin" xml:space="preserve"><value>需管理员权限运行以获得最佳效果</value></data>
+  <data name="TipExpand" xml:space="preserve"><value>点击分类可展开查看文件详情 | 点击文件可在资源管理器中定位</value></data>
+  <data name="SafetyTip" xml:space="preserve"><value>安全提示：清理文件为不可逆操作，建议在执行清理前对重要数据进行备份。</value></data>
+
+  <!-- Cleaners - Base -->
+  <data name="Cleaner_SystemTemp" xml:space="preserve"><value>系统临时文件</value></data>
+  <data name="Cleaner_SystemTemp_Desc" xml:space="preserve"><value>Windows 系统和用户临时文件夹中的文件</value></data>
+  <data name="Cleaner_RecycleBin" xml:space="preserve"><value>回收站</value></data>
+  <data name="Cleaner_RecycleBin_Desc" xml:space="preserve"><value>清空所有驱动器上的回收站</value></data>
+  <data name="Cleaner_BrowserCache" xml:space="preserve"><value>浏览器缓存</value></data>
+  <data name="Cleaner_BrowserCache_Desc" xml:space="preserve"><value>Chrome、Edge、Firefox 浏览器的缓存文件</value></data>
+  <data name="Cleaner_WinUpdate" xml:space="preserve"><value>Windows 更新缓存</value></data>
+  <data name="Cleaner_WinUpdate_Desc" xml:space="preserve"><value>Windows Update 下载的更新安装包，安装后可以安全删除</value></data>
+  <data name="Cleaner_Prefetch" xml:space="preserve"><value>预读取缓存</value></data>
+  <data name="Cleaner_Prefetch_Desc" xml:space="preserve"><value>Windows Prefetch 文件，用于加速程序启动，可安全删除</value></data>
+  <data name="Cleaner_Thumbnail" xml:space="preserve"><value>缩略图缓存</value></data>
+  <data name="Cleaner_Thumbnail_Desc" xml:space="preserve"><value>Windows 资源管理器的缩略图缓存文件 (thumbcache_*.db)</value></data>
+  <data name="Cleaner_LogFiles" xml:space="preserve"><value>系统日志文件</value></data>
+  <data name="Cleaner_LogFiles_Desc" xml:space="preserve"><value>Windows 日志目录中的旧日志文件（.log/.etl 等），可安全删除</value></data>
+  <data name="Cleaner_Dns" xml:space="preserve"><value>DNS 缓存</value></data>
+  <data name="Cleaner_Dns_Desc" xml:space="preserve"><value>刷新 DNS 解析缓存 (ipconfig /flushdns)</value></data>
+
+  <!-- Cleaners - Deep -->
+  <data name="Cleaner_MemoryDump" xml:space="preserve"><value>内存转储文件</value></data>
+  <data name="Cleaner_MemoryDump_Desc" xml:space="preserve"><value>系统蓝屏后生成的内存转储文件，单个可达数 GB</value></data>
+  <data name="Cleaner_DeliveryOpt" xml:space="preserve"><value>传递优化缓存</value></data>
+  <data name="Cleaner_DeliveryOpt_Desc" xml:space="preserve"><value>Windows Update 共享给局域网其他电脑的下载缓存</value></data>
+  <data name="Cleaner_ErrorReport" xml:space="preserve"><value>错误报告文件</value></data>
+  <data name="Cleaner_ErrorReport_Desc" xml:space="preserve"><value>Windows 错误报告的 crash dump 和日志</value></data>
+  <data name="Cleaner_WinOld" xml:space="preserve"><value>旧版 Windows 备份</value></data>
+  <data name="Cleaner_WinOld_Desc" xml:space="preserve"><value>大版本升级后的 C:\Windows.old 旧系统备份，占用巨大空间</value></data>
+  <data name="Cleaner_WeChat" xml:space="preserve"><value>微信/企业微信缓存</value></data>
+  <data name="Cleaner_WeChat_Desc" xml:space="preserve"><value>微信和企业微信的聊天图片、视频、文件缓存，清理后聊天记录仍保留</value></data>
+  <data name="Cleaner_QQ" xml:space="preserve"><value>QQ 缓存</value></data>
+  <data name="Cleaner_QQ_Desc" xml:space="preserve"><value>QQ 群聊的图片和视频缓存，清理后聊天记录仍保留</value></data>
+  <data name="Cleaner_NuGet" xml:space="preserve"><value>NuGet 包缓存</value></data>
+  <data name="Cleaner_NuGet_Desc" xml:space="preserve"><value>.NET 开发者的 NuGet 旧版本包缓存，可重新下载</value></data>
+  <data name="Cleaner_LargeFiles" xml:space="preserve"><value>大文件扫描</value></data>
+  <data name="Cleaner_LargeFiles_Desc" xml:space="preserve"><value>扫描 C 盘中大于100MB 的大文件，由用户自行判断是否删除</value></data>
+  <data name="Cleaner_Duplicates" xml:space="preserve"><value>重复文件查找</value></data>
+  <data name="Cleaner_Duplicates_Desc" xml:space="preserve"><value>扫描 C 盘用户目录中内容相同的重复文件，由用户自行判断</value></data>
+  <data name="Cleaner_EmptyFolders" xml:space="preserve"><value>空文件夹</value></data>
+  <data name="Cleaner_EmptyFolders_Desc" xml:space="preserve"><value>扫描 C 盘中所有空目录（仅展示，不自动清理）</value></data>
+
+  <!-- Risk -->
+  <data name="Risk_Low" xml:space="preserve"><value>低风险</value></data>
+  <data name="Risk_Medium" xml:space="preserve"><value>中风险</value></data>
+  <data name="Risk_Review" xml:space="preserve"><value>仅供参考</value></data>
+
+  <!-- Labels -->
+  <data name="Label_NotScanned" xml:space="preserve"><value>未扫描</value></data>
+  <data name="Label_NoFiles" xml:space="preserve"><value>无文件</value></data>
+  <data name="Label_Files" xml:space="preserve"><value>个文件</value></data>
+  <data name="Label_Cleaned" xml:space="preserve"><value>已清理 {0} 项</value></data>
+  <data name="Label_Failed" xml:space="preserve"><value>已清理 {0} 项, 失败 {1} 项</value></data>
+
+  <!-- Messages -->
+  <data name="Msg_SelectCategory" xml:space="preserve"><value>请至少勾选一项要扫描的分类。</value></data>
+  <data name="Msg_CannotUndo" xml:space="preserve"><value>即将清理 {0} 个分类的内容，此操作不可撤销。</value></data>
+  <data name="Msg_ConfirmContinue" xml:space="preserve"><value>确认继续?</value></data>
+  <data name="Msg_ConfirmClean" xml:space="preserve"><value>确认清理</value></data>
+  <data name="Msg_ScanComplete" xml:space="preserve"><value>扫描完成! 选中 {0} 个分类，共发现 {1} 个文件</value></data>
+  <data name="Msg_CleanComplete" xml:space="preserve"><value>清理完成!</value></data>
+  <data name="Msg_CleanedItems" xml:space="preserve"><value>成功清理: {0} 项</value></data>
+  <data name="Msg_FreedSpace" xml:space="preserve"><value>释放空间: {0}</value></data>
+  <data name="Msg_FailedItems" xml:space="preserve"><value>清理失败: {0} 项</value></data>
+  <data name="Msg_AdminHint" xml:space="preserve"><value>提示: 部分文件可能需要管理员权限才能删除，请尝试以管理员身份运行本程序。</value></data>
+  <data name="Msg_Canceled" xml:space="preserve"><value>已取消清理。</value></data>
+  <data name="Msg_Yes" xml:space="preserve"><value>确定</value></data>
+  <data name="Msg_No" xml:space="preserve"><value>取消</value></data>
+
+  <!-- Dialog titles -->
+  <data name="Dlg_Tip" xml:space="preserve"><value>提示</value></data>
+  <data name="Dlg_Note" xml:space="preserve"><value>注意</value></data>
+</root>

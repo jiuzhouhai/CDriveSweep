@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- App -->
+  <data name="AppTitle" xml:space="preserve"><value>CDriveSweep - C Drive Safe Cleaner</value></data>
+  <data name="AppSubTitle" xml:space="preserve"><value>C Drive Safe Cleaner</value></data>
+
+  <!-- Buttons -->
+  <data name="BtnScan" xml:space="preserve"><value>Scan</value></data>
+  <data name="BtnClean" xml:space="preserve"><value>Clean Selected</value></data>
+  <data name="BtnSelectAll" xml:space="preserve"><value>Select All</value></data>
+  <data name="BtnDeselectAll" xml:space="preserve"><value>Deselect All</value></data>
+  <data name="BtnLanguage" xml:space="preserve"><value>中文</value></data>
+
+  <!-- Status -->
+  <data name="StatusReady" xml:space="preserve"><value>Click "Scan" to analyze C drive for cleanup</value></data>
+  <data name="StatusScanning" xml:space="preserve"><value>Scanning {0} selected categories...</value></data>
+  <data name="StatusCleaning" xml:space="preserve"><value>Cleaning... ({0}/{1})</value></data>
+  <data name="StatusComplete" xml:space="preserve"><value>Scan complete! {0} categories selected, {1} files found</value></data>
+  <data name="LabelSelected" xml:space="preserve"><value>Selected to free:</value></data>
+  <data name="TipAdmin" xml:space="preserve"><value>Run as administrator for best results</value></data>
+  <data name="TipExpand" xml:space="preserve"><value>Click category to expand file details | Click file to open in Explorer</value></data>
+  <data name="SafetyTip" xml:space="preserve"><value>Safety notice: File cleanup is irreversible. Please back up important data before proceeding.</value></data>
+
+  <!-- Cleaners - Base -->
+  <data name="Cleaner_SystemTemp" xml:space="preserve"><value>System Temp Files</value></data>
+  <data name="Cleaner_SystemTemp_Desc" xml:space="preserve"><value>Temporary files in Windows system and user temp folders</value></data>
+  <data name="Cleaner_RecycleBin" xml:space="preserve"><value>Recycle Bin</value></data>
+  <data name="Cleaner_RecycleBin_Desc" xml:space="preserve"><value>Empty the Recycle Bin on all drives</value></data>
+  <data name="Cleaner_BrowserCache" xml:space="preserve"><value>Browser Cache</value></data>
+  <data name="Cleaner_BrowserCache_Desc" xml:space="preserve"><value>Cache files from Chrome, Edge, and Firefox browsers</value></data>
+  <data name="Cleaner_WinUpdate" xml:space="preserve"><value>Windows Update Cache</value></data>
+  <data name="Cleaner_WinUpdate_Desc" xml:space="preserve"><value>Windows Update download packages, safe to delete after installation</value></data>
+  <data name="Cleaner_Prefetch" xml:space="preserve"><value>Prefetch Cache</value></data>
+  <data name="Cleaner_Prefetch_Desc" xml:space="preserve"><value>Windows Prefetch files used to speed up program launches</value></data>
+  <data name="Cleaner_Thumbnail" xml:space="preserve"><value>Thumbnail Cache</value></data>
+  <data name="Cleaner_Thumbnail_Desc" xml:space="preserve"><value>Windows Explorer thumbnail cache files (thumbcache_*.db)</value></data>
+  <data name="Cleaner_LogFiles" xml:space="preserve"><value>System Log Files</value></data>
+  <data name="Cleaner_LogFiles_Desc" xml:space="preserve"><value>Old log files in Windows Logs directory (.log/.etl etc.)</value></data>
+  <data name="Cleaner_Dns" xml:space="preserve"><value>DNS Cache</value></data>
+  <data name="Cleaner_Dns_Desc" xml:space="preserve"><value>Flush the DNS resolver cache (ipconfig /flushdns)</value></data>
+
+  <!-- Cleaners - Deep -->
+  <data name="Cleaner_MemoryDump" xml:space="preserve"><value>Memory Dump Files</value></data>
+  <data name="Cleaner_MemoryDump_Desc" xml:space="preserve"><value>System crash memory dump files, can be several GB each</value></data>
+  <data name="Cleaner_DeliveryOpt" xml:space="preserve"><value>Delivery Optimization Cache</value></data>
+  <data name="Cleaner_DeliveryOpt_Desc" xml:space="preserve"><value>Windows Update cache shared with other PCs on the local network</value></data>
+  <data name="Cleaner_ErrorReport" xml:space="preserve"><value>Error Report Files</value></data>
+  <data name="Cleaner_ErrorReport_Desc" xml:space="preserve"><value>Windows Error Reporting crash dumps and logs</value></data>
+  <data name="Cleaner_WinOld" xml:space="preserve"><value>Old Windows Backup</value></data>
+  <data name="Cleaner_WinOld_Desc" xml:space="preserve"><value>C:\Windows.old backup from a major Windows upgrade</value></data>
+  <data name="Cleaner_WeChat" xml:space="preserve"><value>WeChat / WeCom Cache</value></data>
+  <data name="Cleaner_WeChat_Desc" xml:space="preserve"><value>WeChat and WeCom chat images, videos, and file caches</value></data>
+  <data name="Cleaner_QQ" xml:space="preserve"><value>QQ Cache</value></data>
+  <data name="Cleaner_QQ_Desc" xml:space="preserve"><value>QQ group chat image and video caches</value></data>
+  <data name="Cleaner_NuGet" xml:space="preserve"><value>NuGet Package Cache</value></data>
+  <data name="Cleaner_NuGet_Desc" xml:space="preserve"><value>Old NuGet package versions for .NET developers, can be re-downloaded</value></data>
+  <data name="Cleaner_LargeFiles" xml:space="preserve"><value>Large File Scanner</value></data>
+  <data name="Cleaner_LargeFiles_Desc" xml:space="preserve"><value>Find files larger than 100MB on C drive for manual review</value></data>
+  <data name="Cleaner_Duplicates" xml:space="preserve"><value>Duplicate File Finder</value></data>
+  <data name="Cleaner_Duplicates_Desc" xml:space="preserve"><value>Find duplicate files by content hash for manual review</value></data>
+  <data name="Cleaner_EmptyFolders" xml:space="preserve"><value>Empty Folders</value></data>
+  <data name="Cleaner_EmptyFolders_Desc" xml:space="preserve"><value>Find empty directories on C drive (display only, no auto-cleanup)</value></data>
+
+  <!-- Risk -->
+  <data name="Risk_Low" xml:space="preserve"><value>Low Risk</value></data>
+  <data name="Risk_Medium" xml:space="preserve"><value>Medium Risk</value></data>
+  <data name="Risk_Review" xml:space="preserve"><value>Review Only</value></data>
+
+  <!-- Labels -->
+  <data name="Label_NotScanned" xml:space="preserve"><value>Not scanned</value></data>
+  <data name="Label_NoFiles" xml:space="preserve"><value>No files</value></data>
+  <data name="Label_Files" xml:space="preserve"><value>files</value></data>
+  <data name="Label_Cleaned" xml:space="preserve"><value>Cleaned {0} items</value></data>
+  <data name="Label_Failed" xml:space="preserve"><value>Cleaned {0} items, {1} failed</value></data>
+
+  <!-- Messages -->
+  <data name="Msg_SelectCategory" xml:space="preserve"><value>Please select at least one category to scan.</value></data>
+  <data name="Msg_CannotUndo" xml:space="preserve"><value>About to clean {0} categories. This cannot be undone.</value></data>
+  <data name="Msg_ConfirmContinue" xml:space="preserve"><value>Are you sure you want to continue?</value></data>
+  <data name="Msg_ConfirmClean" xml:space="preserve"><value>Confirm Cleanup</value></data>
+  <data name="Msg_ScanComplete" xml:space="preserve"><value>Scan complete! {0} categories selected, {1} files found</value></data>
+  <data name="Msg_CleanComplete" xml:space="preserve"><value>Cleanup complete!</value></data>
+  <data name="Msg_CleanedItems" xml:space="preserve"><value>Successfully cleaned: {0} items</value></data>
+  <data name="Msg_FreedSpace" xml:space="preserve"><value>Space freed: {0}</value></data>
+  <data name="Msg_FailedItems" xml:space="preserve"><value>Cleanup failed: {0} items</value></data>
+  <data name="Msg_AdminHint" xml:space="preserve"><value>Tip: Some files may require administrator privileges. Try running as administrator.</value></data>
+  <data name="Msg_Canceled" xml:space="preserve"><value>Cleanup cancelled.</value></data>
+  <data name="Msg_Yes" xml:space="preserve"><value>OK</value></data>
+  <data name="Msg_No" xml:space="preserve"><value>Cancel</value></data>
+
+  <!-- Dialog titles -->
+  <data name="Dlg_Tip" xml:space="preserve"><value>Information</value></data>
+  <data name="Dlg_Note" xml:space="preserve"><value>Notice</value></data>
+</root>
